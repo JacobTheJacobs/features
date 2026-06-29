@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="sepia">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ── primary meta ─────────────────────────────────────────────── -->
+  <title>Portfolio — Software Engineer</title>
+  <meta name="description" content="Personal portfolio and blog of a software engineer — projects, writing, and the small tools I build." />
+  <meta name="author" content="Jacob" />
+  <meta name="keywords" content="software engineer, portfolio, developer, projects, blog, web development" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jacobthejacobs.github.io/features/" />
+
+  <!-- ── theme / appearance ───────────────────────────────────────── -->
+  <meta name="theme-color" content="#2b2017" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- ── icons / pwa ──────────────────────────────────────────────── -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- ── open graph (facebook / linkedin / slack) ─────────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Portfolio" />
+  <meta property="og:title" content="Portfolio — Software Engineer" />
+  <meta property="og:description" content="Personal portfolio and blog of a software engineer — projects, writing, and the small tools I build." />
+  <meta property="og:url" content="https://jacobthejacobs.github.io/features/" />
+  <meta property="og:image" content="https://jacobthejacobs.github.io/features/og-image.svg" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- ── twitter / x ──────────────────────────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portfolio — Software Engineer" />
+  <meta name="twitter:description" content="Personal portfolio and blog of a software engineer — projects, writing, and the small tools I build." />
+  <meta name="twitter:image" content="https://jacobthejacobs.github.io/features/og-image.svg" />
+
+  <!-- ── performance: warm up CDNs + preload the LCP cover ─────────── -->
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="images/datalive-play.webp" fetchpriority="high" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* pixel-art canvas — sits behind everything, scales up with chunky pixels */
+    #bg3d {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .42;
+      transition: opacity .4s;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      mix-blend-mode: multiply;
+    }
+    [data-theme="terminal"] #bg3d { mix-blend-mode: screen;   opacity: .55; }
+    [data-theme="web1"]     #bg3d { mix-blend-mode: multiply; opacity: .32; }
+    [data-theme="notepad"]  #bg3d { mix-blend-mode: multiply; opacity: .35; }
+    .shell { position: relative; z-index: 1; }
+  </style>
+
+  <!-- ── structured data (schema.org) for richer search results ───── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jacob",
+    "url": "https://jacobthejacobs.github.io/features/",
+    "jobTitle": "Software Engineer",
+    "sameAs": ["https://github.com/JacobTheJacobs"]
+  }
+  </script>
+</head>
+<body>
+  <canvas id="bg3d" aria-hidden="true"></canvas>
+  <div id="root"></div>
+  <noscript>This portfolio needs JavaScript enabled to load. Please enable it in your browser.</noscript>
+
+  <!-- Production React (minified) + precompiled app scripts — no in-browser Babel. -->
+  <script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script defer src="bg3d.js"></script>
+  <script defer src="tweaks-panel.js"></script>
+  <script defer src="sprites.js"></script>
+  <script defer src="posts.js"></script>
+  <script defer src="app.js"></script>
+</body>
+</html>

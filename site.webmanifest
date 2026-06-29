@@ -1,0 +1,17 @@
+{
+  "name": "Portfolio",
+  "short_name": "Portfolio",
+  "description": "Personal portfolio and blog of a software engineer.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#2b2017",
+  "theme_color": "#2b2017",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

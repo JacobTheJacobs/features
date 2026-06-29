@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240" role="img" aria-label="Israel News MCP">
+  <rect width="600" height="240" fill="#16202e"/>
+  <rect x="10" y="10" width="580" height="220" rx="10" fill="none" stroke="#7ea8d0" stroke-width="2"/>
+  <text x="44" y="158" font-size="92">📰</text>
+  <text x="190" y="112" font-family="'Courier New', monospace" font-size="32" font-weight="700" fill="#f2e8d5">Israel News MCP</text>
+  <text x="192" y="148" font-family="'Courier New', monospace" font-size="19" fill="#7ea8d0">model context protocol server</text>
+  <text x="192" y="178" font-family="'Courier New', monospace" font-size="14" fill="#9bb0c4">Ynet · Haaretz · Globes · Calcalist · JPost</text>
+</svg>

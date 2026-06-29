@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#2b2017"/>
+  <rect x="40" y="40" width="1120" height="550" rx="18" fill="none" stroke="#c98a3a" stroke-width="3"/>
+  <text x="100" y="300" font-family="monospace" font-size="96" font-weight="700" fill="#f2e8d5">Portfolio</text>
+  <text x="104" y="370" font-family="monospace" font-size="38" fill="#c98a3a">software engineer · projects · writing</text>
+  <text x="100" y="540" font-family="monospace" font-size="30" fill="#9c8a72">~ jacobthejacobs.github.io</text>
+</svg>
