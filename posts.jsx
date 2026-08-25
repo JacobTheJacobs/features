@@ -5,7 +5,11 @@
 const AI_PROJECTS = [
   {
     name: "Antigravity CLI Copilot",
+    slug: "antigravity-cli-copilot",
     kind: "vs code extension",
+    what: "Google's Antigravity CLI, driven from a VS Code side panel.",
+    problem: "The CLI is good; living in a terminal beside your editor is not. Answers scroll away, images never render, and typing while it works cancels the turn. The panel keeps the replies streaming, draws each tool call as a row, renders generated images inline, and queues a follow-up instead of interrupting.",
+    shots: ["images/shots/antigravity-marketplace.webp"],
     desc: "Google's Antigravity CLI inside VS Code \u2014 streaming replies, live tool rows, generated images rendered inline, and follow-ups queued instead of cancelling the turn.",
     href: "https://marketplace.visualstudio.com/items?itemName=jacobthejacobs.antigravity-chat",
     linkLabel: "Marketplace \u2192",
@@ -13,7 +17,11 @@ const AI_PROJECTS = [
   },
   {
     name: "Claw Mate",
+    slug: "claw-mate",
     kind: "desktop AI pet",
+    what: "A desktop pet that watches your coding agents.",
+    problem: "Agents run for a long time and then quietly wait for a yes. You either babysit the window or find out ten minutes late. Claw Mate lives on the desktop, follows what Claude Code, Codex and OpenClaw are doing, and reacts the moment one needs an approval.",
+    shots: ["images/shots/clawmate-store.webp"],
     desc: "A desktop AI pet that connects with Claude Code, Codex, and OpenClaw to understand what your agents are doing and surface approvals when needed.",
     img: "images/claw-mate-studio.webp",
     links: [
@@ -23,7 +31,11 @@ const AI_PROJECTS = [
   },
   {
     name: "Grok CLI Copilot",
+    slug: "grok-cli-copilot",
     kind: "vs code extension",
+    what: "The local Grok CLI, driven from a VS Code side panel.",
+    problem: "Same gap as any terminal agent: it cannot see your editor and you cannot see its work. The sidebar gives it your files and folders through @-mentions and pasted images, and gives you its edits, slash commands and live sessions in one place.",
+    shots: ["images/shots/grok-marketplace.webp"],
     desc: "An AI coding copilot for VS Code powered by the local Grok CLI — chat, agentic edits, slash commands, file & folder context, @-mentions, image paste, and live sessions in a focused sidebar.",
     href: "https://marketplace.visualstudio.com/items?itemName=jacobthejacobs.grok-cli-copilot",
     linkLabel: "Marketplace →",
@@ -31,7 +43,10 @@ const AI_PROJECTS = [
   },
   {
     name: "TradingAgents Control Room",
+    slug: "tradingagents-control-room",
     kind: "multi-agent \u00b7 react + phaser",
+    what: "A multi-agent trading floor you can watch work.",
+    problem: "A multi-agent system usually reports a verdict and hides the argument that produced it. Here the argument is the interface: analysts research, a bull and a bear debate, a trader decides, risk signs off, and every step plays out on a pixel-art floor you can follow.",
     desc: "A multi-agent trading floor you can watch \u2014 AI analysts debate a stock live in pixel art, running analysts \u2192 bull/bear debate \u2192 trader \u2192 risk \u2192 decision. React + Phaser front end, FastAPI back end, market data from the Fin-Node CDN.",
     href: "https://github.com/JacobTheJacobs/TradingAgents-Control-Room",
     linkLabel: "GitHub \u2192",
@@ -39,19 +54,24 @@ const AI_PROJECTS = [
   },
   {
     name: "PhantomPilot",
+    slug: "phantompilot",
     kind: "android · ai agent",
+    what: "An agent that operates an Android phone by looking at it.",
+    problem: "Phone automation normally needs an API for every app, so it breaks on anything you did not plan for. PhantomPilot works the way a person does — read the screen, plan a step, tap — so it drives apps that never exposed anything to automate.",
+    shots: ["images/shots/phantompilot-settings.webp", "images/shots/phantompilot-task.webp"],
     desc: "An autonomous AI agent that operates your Android phone for you — it reads the screen, plans the steps, and ghost-taps through real apps to complete tasks hands-free.",
-    href: "https://github.com/JacobTheJacobs/phantompilot",
-    linkLabel: "GitHub →",
+    links: [],
     img: "images/phantompilot.svg",
     underConstruction: true,
   },
   {
     name: "Browser SDK",
+    slug: "browser-sdk",
     kind: "web scraping · playwright",
+    what: "Browser automation that finds elements by sight, not by selector.",
+    problem: "Selectors rot the moment a page ships a redesign, and hosted scrapers send your targets to someone else's cloud. This drives a real local Chrome, locates elements with a vision model by pixel, plans each step, and keeps a shared scratchpad so a long run remembers what it already saw.",
     desc: "A local, private web-scraping & browser-automation SDK — drives a real Chrome through Playwright with humanized clicks and typing, using a UI vision model (Fara-7B) to locate elements by pixel and a planner (Qwen3.5) to decide each step, with a shared JSONL scratchpad so long scrape/research runs keep their memory.",
-    href: "https://github.com/JacobTheJacobs/open-browser",
-    linkLabel: "GitHub →",
+    links: [],
     img: "images/browser-sdk.svg",
     underConstruction: true,
   },
@@ -60,7 +80,11 @@ const AI_PROJECTS = [
 const PUBLICATION_PROJECTS = [
   {
     name: "Clawpit",
+    slug: "clawpit",
     kind: "agentic newsroom \u00b7 AI desk",
+    what: "An AI news desk, run end to end by agents.",
+    problem: "Model launches are covered by repeating the announcement. The desk reads what shipped with it — cards, papers, release notes — and files the story under what actually changed, eight sections deep, every day.",
+    shots: ["images/shots/clawpit-article.webp"],
     desc: "An agent-run AI news desk in English \u2014 models, labs, research and what the release notes left out, filed under Models, Agents, Security, Hardware, Labs, Products, Research and Policy. Its feed is what the blog page here reads.",
     href: "https://www.clawpit.io/clawpit",
     linkLabel: "Read \u2192",
@@ -68,7 +92,11 @@ const PUBLICATION_PROJECTS = [
   },
   {
     name: "Fin-node",
+    slug: "fin-node",
     kind: "agentic newsroom \u00b7 markets",
+    what: "A markets desk, run end to end by agents.",
+    problem: "Market news arrives as a wall of tickers and no story. Fin-node writes the story: earnings, deals, rates and the companies behind them, with a live ticker on top and RSS out the back. It also serves the market data behind TradingAgents Control Room.",
+    shots: ["images/shots/finnode-article.webp"],
     desc: "An agent-run finance publication \u2014 markets, earnings, deals and the economy, written and published end to end by agents, with a live ticker, section feeds and RSS. It also serves the market data behind TradingAgents Control Room.",
     href: "https://www.fin-node.net/finance",
     linkLabel: "Read \u2192",
@@ -76,7 +104,11 @@ const PUBLICATION_PROJECTS = [
   },
   {
     name: "AgentNet",
+    slug: "agentnet",
     kind: "agentic newsroom \u00b7 hebrew AI",
+    what: "An AI news desk in Hebrew, run end to end by agents.",
+    problem: "Israeli readers get AI news late and in translation. AgentNet publishes it in Hebrew the same day \u2014 launches, funding, research \u2014 fully right-to-left, with its own type and generated art per story.",
+    shots: ["images/shots/agentnet-article.webp"],
     desc: "An agent-run AI news desk in Hebrew for the Israeli tech scene \u2014 model launches, funding and research, with briefs, an archive and an academy section. Fully RTL, self-hosted type, generated art per story.",
     href: "https://www.agentnet.co.il/ai",
     linkLabel: "Read \u2192",
@@ -87,7 +119,10 @@ const PUBLICATION_PROJECTS = [
 const MACOS_PROJECTS = [
   {
     name: "Llama Menu",
+    slug: "llama-menu",
     kind: "macOS menu bar \u00b7 llama.cpp",
+    what: "Local llama.cpp, run from the macOS menu bar.",
+    problem: "Loading a GGUF means guessing a context size and finding out from a crash. Llama Menu reads the model's own metadata, works out the largest context your Mac can actually hold, and starts, stops and watches the server from the menu bar.",
     desc: "A macOS menu bar control for local llama.cpp \u2014 runs GGUF models at the largest context your Mac can actually hold, sized from real GGUF metadata rather than guesswork.",
     href: "https://github.com/JacobTheJacobs/llamacpp-menubar",
     linkLabel: "GitHub \u2192",
@@ -95,7 +130,10 @@ const MACOS_PROJECTS = [
   },
   {
     name: "Hermes Menu",
+    slug: "hermes-menu",
     kind: "macOS menu bar \u00b7 gateway",
+    what: "The Hermes gateway, run from the macOS menu bar.",
+    problem: "A gateway that runs under launchd is either up or lying to you. This reads its state straight from launchd rather than scraping CLI output, so the icon tells the truth, and start and stop are one click.",
     desc: "A macOS menu bar control for the Hermes gateway \u2014 start it, stop it, and watch it, with status read straight from launchd instead of scraped from CLI output.",
     href: "https://github.com/JacobTheJacobs/hermes-menubar",
     linkLabel: "GitHub \u2192",
@@ -106,7 +144,11 @@ const MACOS_PROJECTS = [
 const THREEJS_PROJECTS = [
   {
     name: "Corporate Brawl",
+    slug: "corporate-brawl",
     kind: "three.js game",
+    what: "An office brawl, in the browser, in Three.js.",
+    problem: "Built to see how far a 3D game can go with nothing but a browser tab \u2014 no install, no engine, no download. Hire neutral workers with cash, build a bull army, and bring down a Boss Bear who gets richer every time he respawns.",
+    shots: ["images/shots/brawl-start.webp"],
     desc: "A Three.js browser game with chaotic office-brawl gameplay.",
     href: "https://corporate-brawl.web.app/",
     linkLabel: "Live Demo →",
@@ -114,7 +156,11 @@ const THREEJS_PROJECTS = [
   },
   {
     name: "Floor Planner",
+    slug: "floor-planner",
     kind: "web app · 2D/3D",
+    what: "Draw a floor in 2D, walk it in 3D.",
+    problem: "Floor planning tools want an account before they want your walls. This one opens, draws rooms, places furniture, flips to 3D to check the space, and saves the plan on your own machine.",
+    shots: ["images/shots/floorplan-app.webp"],
     desc: "A browser-based 2D/3D floor planner — lay out rooms, place items, switch between 2D and 3D views, and save floors locally.",
     href: "https://floorplan-29233.web.app/",
     linkLabel: "Live Demo →",
@@ -125,7 +171,11 @@ const THREEJS_PROJECTS = [
 const EXPERIMENT_PROJECTS = [
   {
     name: "VocalWake",
+    slug: "vocalwake",
     kind: "android \u00b7 alarm clock",
+    what: "An alarm you have to talk your way out of.",
+    problem: "Dismissing an alarm takes one thumb and no consciousness. VocalWake needs your voice: set a phrase or a longer passage, and the alarm clears only once you recite it. Recognition runs on the device, with word-by-word feedback, a rehearsal mode and an accuracy level you set.",
+    shots: ["images/shots/vocalwake-home.webp", "images/shots/vocalwake-editor.webp"],
     desc: "An Android alarm clock you have to talk your way out of \u2014 set a wake phrase or a longer passage, and the alarm only clears once you recite it. On-device speech recognition, word-by-word feedback, a rehearsal mode, and an accuracy threshold you pick yourself. Heading for Google Play.",
     links: [],
     img: "images/vocalwake.webp",
@@ -133,7 +183,10 @@ const EXPERIMENT_PROJECTS = [
   },
   {
     name: "Israel News MCP",
+    slug: "israel-news-mcp",
     kind: "mcp server · typescript",
+    what: "Israeli newspapers, as one MCP tool.",
+    problem: "Asking an assistant what Israeli papers are saying means seven RSS feeds in two languages and no shared shape. This server merges Ynet, Walla, Haaretz, TheMarker, Globes, Calcalist and the Jerusalem Post, filters by source, section, language, keyword and date, and hands back structured articles to any MCP client.",
     desc: "A Model Context Protocol (MCP) server that aggregates Israeli newspaper RSS feeds — query major Hebrew & English outlets (Ynet, Walla, Haaretz, TheMarker, Globes, Calcalist, Jerusalem Post) and filter by source, section, language, keyword, and publication date, returning structured articles to any MCP client like Claude.",
     href: "https://github.com/JacobTheJacobs/israel-newspapers-rss-mcp",
     linkLabel: "GitHub →",
@@ -141,7 +194,11 @@ const EXPERIMENT_PROJECTS = [
   },
   {
     name: "PixelBoy",
+    slug: "pixelboy",
     kind: "react · pixel editor",
+    what: "An 8-bit sprite editor with animation, in a tab.",
+    problem: "Spriting usually means a desktop app and a licence. PixelBoy runs in the browser: draw frame by frame, drag to reorder, watch the loop live, mirror and move, then export a PNG spritesheet your engine can read.",
+    shots: ["images/shots/pixelboy-app.webp"],
     desc: "An 8-bit retro pixel sprite editor (React + Vite) — frame-by-frame animation with drag-to-reorder, live preview, a 60+ color palette, move/mirror tools, and PNG spritesheet export.",
     href: "https://pixel-boy-studio.web.app/",
     linkLabel: "Live Demo →",
@@ -149,7 +206,10 @@ const EXPERIMENT_PROJECTS = [
   },
   {
     name: "Alexa NFT Trending",
+    slug: "alexa-nft-trending",
     kind: "alexa skill · C#",
+    what: "Trending NFTs, read out loud.",
+    problem: "Checking what is moving meant opening a dashboard. This skill answers out loud instead \u2014 a .NET backend behind an Alexa voice model, collecting nothing about whoever asked.",
     desc: "An Amazon Alexa skill that reports the top trending NFTs by voice. .NET/C# backend, no personal data collected.",
     href: "https://github.com/JacobTheJacobs/AlexaNftTrending",
     linkLabel: "GitHub →",
@@ -160,7 +220,11 @@ const EXPERIMENT_PROJECTS = [
 const COMPANY_PROJECTS = [
   {
     name: "DataLive™",
+    slug: "datalive",
     kind: "android · MSD Animal Health",
+    what: "Live herd monitoring for MSD Animal Health.",
+    problem: "Herd health data sits in sensors and spreadsheets, far from whoever has to act on it. The app puts it on the phone: live monitoring, health metrics, rumination tracking and farm analytics, in the barn rather than the office.",
+    shots: ["images/shots/datalive-play.webp"],
     desc: "An Android app for MSD Animal Health — live dairy/livestock monitoring with health metrics, rumination tracking, and farm analytics dashboards.",
     href: "https://play.google.com/store/apps/details?id=com.msd.ah.datalive&hl=en",
     linkLabel: "Google Play →",
@@ -168,7 +232,11 @@ const COMPANY_PROJECTS = [
   },
   {
     name: "Jane",
+    slug: "jane",
     kind: "pharmacy network · web",
+    what: "One online system for a pharmacy network.",
+    problem: "A member pharmacy network runs as dozens of separate shops with nothing joining them. This platform puts the partner pharmacies under one system, serving over 200K people a month.",
+    shots: ["images/shots/jane-app.webp"],
     desc: "A member-pharmacy platform for Jane, an Israeli pharmacy network — connecting partner pharmacies under one online system and serving over 200K monthly users.",
     href: "http://jane.co.il/",
     linkLabel: "Visit Site →",
@@ -197,6 +265,10 @@ const CONTRIBUTIONS = [
     desc: "30 notebooks covering the memory patterns agents actually need",
   },
 ];
+
+window.ALL_PROJECTS = [].concat(
+  COMPANY_PROJECTS, AI_PROJECTS, PUBLICATION_PROJECTS, MACOS_PROJECTS, THREEJS_PROJECTS, EXPERIMENT_PROJECTS
+);
 
 window.CONTRIBUTIONS = CONTRIBUTIONS;
 

@@ -35,6 +35,19 @@ function fmtDate(iso) {
   return `${String(d).padStart(2,"0")} ${months[m-1]} ${y}`;
 }
 
+
+// ── routing ───────────────────────────────────────────────────────────────
+function readRoute() {
+  const hash = window.location.hash.replace(/^#/, "");
+  if (hash.startsWith("p/")) return { name: "project", slug: hash.slice(2) };
+  if (hash === "blog") return { name: "blog" };
+  return { name: "projects" };
+}
+
+function projectHref(p) {
+  return p.slug ? `#p/${p.slug}` : undefined;
+}
+
 // ── nav ───────────────────────────────────────────────────────────────────
 const NAV = [
   { id: "projects", label: "projects", icon: "projects" },
@@ -48,7 +61,7 @@ function Nav({ page, onNav }) {
         <button
           key={n.id}
           type="button"
-          aria-current={page === n.id ? "page" : undefined}
+          aria-current={page === n.id || (n.id === "projects" && page === "project") ? "page" : undefined}
           onClick={() => onNav(n.id)}
         >
           <PixelIcon name={n.icon} size={16} palette={{"1":"currentColor","2":"var(--paper-2)","3":"var(--accent)"}} />
@@ -136,21 +149,29 @@ function Sidebar() {
 
 // ── pages ─────────────────────────────────────────────────────────────────
 function ProjectCard({ p, eager }) {
+  const href = projectHref(p);
+  const cover = p.img && (
+    <img className="pcover" src={p.img} alt={`${p.name} cover`} width="600" height="240"
+      loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : "auto"} decoding="async" />
+  );
   return (
     <div className="project">
       {p.underConstruction && <span className="badge-uc">⚠ under construction</span>}
-      {p.img && (
-        <img className="pcover" src={p.img} alt={`${p.name} cover`} width="600" height="240"
-          loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : "auto"} decoding="async" />
-      )}
-      <div className="pname"><PixelIcon name="projects" size={20} color="var(--accent)" />{p.name}</div>
+      {/* the cover and the name both open the project's own page */}
+      {cover && (href ? <a className="pcover-link" href={href} aria-label={`${p.name} — read more`}>{cover}</a> : cover)}
+      <div className="pname">
+        <PixelIcon name="projects" size={20} color="var(--accent)" />
+        {href ? <a className="pname-link" href={href}>{p.name}</a> : p.name}
+      </div>
       <div className="pmeta">
         <span>{p.kind}</span>
         {p.year && <><span>·</span><span>{p.year}</span></>}
       </div>
       <p>{p.desc}</p>
       <div className="links">
-        {(p.links || [{ label: p.linkLabel || "readme →", href: p.href }]).map((l) => (
+        {/* explicit way in, next to the cover and title which also navigate */}
+        {href && <a className="more-link" href={href}>more →</a>}
+        {(p.links || (p.href ? [{ label: p.linkLabel || "readme →", href: p.href }] : [])).map((l) => (
           <a
             key={l.label}
             href={l.href}
@@ -192,6 +213,79 @@ function ProjectsPage() {
   );
 }
 
+
+// ── one project ───────────────────────────────────────────────────────────
+function ProjectPage({ slug }) {
+  const p = (window.ALL_PROJECTS || []).find((x) => x.slug === slug);
+
+  if (!p) {
+    return (
+      <>
+        <div className="pagehead">
+          <h2>not found</h2>
+          <a className="crumb" href="#">← projects</a>
+        </div>
+        <p style={{ fontSize: 13.5 }}>No project goes by that name.</p>
+      </>
+    );
+  }
+
+  const links = p.links || (p.href ? [{ label: p.linkLabel || "readme →", href: p.href }] : []);
+  const shots = p.shots || [];
+
+  return (
+    <article className="detail">
+      <div className="pagehead">
+        <h2>{p.name}</h2>
+        <a className="crumb" href="#">← projects</a>
+      </div>
+
+      <div className="dmeta">
+        <span>{p.kind}</span>
+        {p.underConstruction && <><span>·</span><span className="duc">under construction</span></>}
+      </div>
+
+      {p.what && <p className="dwhat">{p.what}</p>}
+
+      {p.img && <img className="dhero" src={p.img} alt={`${p.name} cover`} width="600" height="240" decoding="async" />}
+
+      {p.problem && (
+        <section className="dsection">
+          <h3>the problem</h3>
+          <p>{p.problem}</p>
+        </section>
+      )}
+
+      <section className="dsection">
+        <h3>what it is</h3>
+        <p>{p.desc}</p>
+      </section>
+
+      {shots.length > 0 && (
+        <section className="dsection">
+          <h3>a look at it</h3>
+          <div className={`dshots${shots.length === 1 ? " one" : ""}`}>
+            {shots.map((src) => (
+              <a key={src} href={src} target="_blank" rel="noopener noreferrer">
+                <img src={src} alt={`${p.name} screenshot`} loading="lazy" decoding="async" />
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {links.length > 0 && (
+        <div className="links dlinks">
+          {links.map((l) => (
+            <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
+          ))}
+        </div>
+      )}
+
+      <a className="dback" href="#">← all projects</a>
+    </article>
+  );
+}
 
 // ── blog ──────────────────────────────────────────────────────────────────
 // Reads the Clawpit RSS feed at load time. The desk publishes every day and
@@ -320,16 +414,17 @@ function Tweaks({ t, setTweak }) {
 // ── App ───────────────────────────────────────────────────────────────────
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-  // "projects" | "blog" — kept in the hash so a page is linkable and survives reload
-  const [page, setPage] = React.useState(
-    () => (window.location.hash.replace("#", "") === "blog" ? "blog" : "projects")
-  );
+  // route lives in the hash so every page is linkable and survives a reload:
+  // "" → projects, "blog" → blog, "p/<slug>" → one project
+  const [route, setRoute] = React.useState(readRoute);
 
   React.useEffect(() => {
-    const onHash = () => setPage(window.location.hash.replace("#", "") === "blog" ? "blog" : "projects");
+    const onHash = () => setRoute(readRoute());
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
+
+  const page = route.name;
 
   // sync theme + display font to <html>/<body>
   React.useEffect(() => {
@@ -351,11 +446,14 @@ function App() {
   }, [t.bg3d]);
 
   // scroll to top on page change
-  React.useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [page]);
+  React.useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [route.name, route.slug]);
 
-  const onNav = (id) => { window.location.hash = id === "blog" ? "blog" : ""; setPage(id); };
+  const onNav = (id) => { window.location.hash = id === "blog" ? "blog" : ""; };
 
-  const body = page === "blog" ? <BlogPage /> : <ProjectsPage />;
+  const body =
+    route.name === "project" ? <ProjectPage slug={route.slug} /> :
+    route.name === "blog"    ? <BlogPage /> :
+                               <ProjectsPage />;
 
   return (
     <div className="shell">
