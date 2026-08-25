@@ -38,6 +38,7 @@ function fmtDate(iso) {
 // ── nav ───────────────────────────────────────────────────────────────────
 const NAV = [
   { id: "projects", label: "projects", icon: "projects" },
+  { id: "blog",     label: "blog",     icon: "posts"    },
 ];
 
 function Nav({ page, onNav }) {
@@ -182,6 +183,7 @@ function ProjectsPage() {
     <>
       <ProjectSection title="Corporate projects" items={window.COMPANY_PROJECTS} top />
       <ProjectSection title="AI" items={window.AI_PROJECTS} />
+      <ProjectSection title="Publications" items={window.PUBLICATION_PROJECTS} />
       <ProjectSection title="macOS tools" items={window.MACOS_PROJECTS} />
       <ProjectSection title="Three.js" items={window.THREEJS_PROJECTS} />
       <ProjectSection title="Experiments" items={window.EXPERIMENT_PROJECTS} />
@@ -189,6 +191,73 @@ function ProjectsPage() {
   );
 }
 
+
+// ── blog ──────────────────────────────────────────────────────────────────
+// Reads the Clawpit RSS feed at load time. The desk publishes every day and
+// the feed is CORS-open, so the list here stays current without a redeploy.
+function feedText(item, tag) {
+  const el = item.querySelector(tag);
+  return el ? el.textContent.trim() : "";
+}
+
+function BlogPage() {
+  const feed = window.BLOG_FEED;
+  const [state, setState] = React.useState({ status: "loading", items: [] });
+
+  React.useEffect(() => {
+    let alive = true;
+    fetch(feed.rss, { cache: "no-cache" })
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then((xml) => {
+        const doc = new DOMParser().parseFromString(xml, "application/xml");
+        if (doc.querySelector("parsererror")) throw new Error("unreadable feed");
+        const items = Array.from(doc.querySelectorAll("item")).slice(0, 15).map((it) => ({
+          title: feedText(it, "title"),
+          link:  feedText(it, "link"),
+          cat:   feedText(it, "category"),
+        }));
+        if (alive) setState({ status: items.length ? "ok" : "empty", items });
+      })
+      .catch(() => { if (alive) setState({ status: "error", items: [] }); });
+    return () => { alive = false; };
+  }, [feed.rss]);
+
+  return (
+    <>
+      <div className="pagehead">
+        <h2>blog</h2>
+        <a className="crumb" href={feed.home} target="_blank" rel="noopener noreferrer">{feed.name} →</a>
+      </div>
+      {state.status === "loading" && <p style={{ fontSize: 13 }}>loading the feed…</p>}
+
+      {(state.status === "error" || state.status === "empty") && (
+        <p style={{ fontSize: 13 }}>
+          The feed did not load.{" "}
+          <a href={feed.home} target="_blank" rel="noopener noreferrer">Read it on {feed.name} →</a>
+        </p>
+      )}
+
+      {state.status === "ok" && (
+        <div className="posts">
+          {state.items.map((it) => (
+            <a
+              key={it.link}
+              className="post-row"
+              href={it.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <span className="date">{(it.cat || "post").toLowerCase()}</span>
+              <span className="title">{it.title}</span>
+              <span className="tags">read →</span>
+            </a>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}
 
 // ── footer ────────────────────────────────────────────────────────────────
 function Footer() {
@@ -250,7 +319,16 @@ function Tweaks({ t, setTweak }) {
 // ── App ───────────────────────────────────────────────────────────────────
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-  const [page, setPage] = React.useState("projects"); // "projects"
+  // "projects" | "blog" — kept in the hash so a page is linkable and survives reload
+  const [page, setPage] = React.useState(
+    () => (window.location.hash.replace("#", "") === "blog" ? "blog" : "projects")
+  );
+
+  React.useEffect(() => {
+    const onHash = () => setPage(window.location.hash.replace("#", "") === "blog" ? "blog" : "projects");
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   // sync theme + display font to <html>/<body>
   React.useEffect(() => {
@@ -274,9 +352,9 @@ function App() {
   // scroll to top on page change
   React.useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [page]);
 
-  const onNav = (id) => setPage(id);
+  const onNav = (id) => { window.location.hash = id === "blog" ? "blog" : ""; setPage(id); };
 
-  const body = <ProjectsPage />;
+  const body = page === "blog" ? <BlogPage /> : <ProjectsPage />;
 
   return (
     <div className="shell">

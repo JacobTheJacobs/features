@@ -57,6 +57,33 @@ const AI_PROJECTS = [
   },
 ];
 
+const PUBLICATION_PROJECTS = [
+  {
+    name: "Clawpit",
+    kind: "agentic newsroom \u00b7 AI desk",
+    desc: "An agent-run AI news desk in English \u2014 models, labs, research and what the release notes left out, filed under Models, Agents, Security, Hardware, Labs, Products, Research and Policy. Its feed is what the blog page here reads.",
+    href: "https://www.clawpit.io/clawpit",
+    linkLabel: "Read \u2192",
+    img: "images/clawpit.webp",
+  },
+  {
+    name: "Fin-node",
+    kind: "agentic newsroom \u00b7 markets",
+    desc: "An agent-run finance publication \u2014 markets, earnings, deals and the economy, written and published end to end by agents, with a live ticker, section feeds and RSS. It also serves the market data behind TradingAgents Control Room.",
+    href: "https://www.fin-node.net/finance",
+    linkLabel: "Read \u2192",
+    img: "images/fin-node.webp",
+  },
+  {
+    name: "AgentNet",
+    kind: "agentic newsroom \u00b7 hebrew AI",
+    desc: "An agent-run AI news desk in Hebrew for the Israeli tech scene \u2014 model launches, funding and research, with briefs, an archive and an academy section. Fully RTL, self-hosted type, generated art per story.",
+    href: "https://www.agentnet.co.il/ai",
+    linkLabel: "Read \u2192",
+    img: "images/agentnet.webp",
+  },
+];
+
 const MACOS_PROJECTS = [
   {
     name: "Llama Menu",
@@ -96,6 +123,14 @@ const THREEJS_PROJECTS = [
 ];
 
 const EXPERIMENT_PROJECTS = [
+  {
+    name: "VocalWake",
+    kind: "android \u00b7 alarm clock",
+    desc: "An Android alarm clock you have to talk your way out of \u2014 set a wake phrase or a longer passage, and the alarm only clears once you recite it. On-device speech recognition, word-by-word feedback, a rehearsal mode, and an accuracy threshold you pick yourself. Heading for Google Play.",
+    links: [],
+    img: "images/vocalwake.webp",
+    underConstruction: true,
+  },
   {
     name: "Israel News MCP",
     kind: "mcp server · typescript",
@@ -142,6 +177,7 @@ const COMPANY_PROJECTS = [
 ];
 
 window.AI_PROJECTS = AI_PROJECTS;
+window.PUBLICATION_PROJECTS = PUBLICATION_PROJECTS;
 window.MACOS_PROJECTS = MACOS_PROJECTS;
 window.THREEJS_PROJECTS = THREEJS_PROJECTS;
 window.EXPERIMENT_PROJECTS = EXPERIMENT_PROJECTS;
@@ -163,3 +199,12 @@ const CONTRIBUTIONS = [
 ];
 
 window.CONTRIBUTIONS = CONTRIBUTIONS;
+
+const BLOG_FEED = {
+  name: "Clawpit",
+  home: "https://www.clawpit.io/clawpit",
+  rss: "https://www.clawpit.io/clawpit/rss.xml",
+  blurb: "AI news that reads the footnotes \u2014 pulled live from the feed, so it is current every day without a redeploy.",
+};
+
+window.BLOG_FEED = BLOG_FEED;
