@@ -149,7 +149,9 @@ function Sidebar() {
 
 // ── pages ─────────────────────────────────────────────────────────────────
 function ProjectCard({ p, eager }) {
-  const href = projectHref(p);
+  // a project with a live demo has a better page than anything here: its own
+  const href = p.direct ? p.href : projectHref(p);
+  const external = Boolean(p.direct);
   const cover = p.img && (
     <img className="pcover" src={p.img} alt={`${p.name} cover`} width="600" height="240"
       loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : "auto"} decoding="async" />
@@ -158,10 +160,17 @@ function ProjectCard({ p, eager }) {
     <div className="project">
       {p.underConstruction && <span className="badge-uc">⚠ under construction</span>}
       {/* the cover and the name both open the project's own page */}
-      {cover && (href ? <a className="pcover-link" href={href} aria-label={`${p.name} — read more`}>{cover}</a> : cover)}
+      {cover && (href
+        ? <a className="pcover-link" href={href}
+             target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}
+             aria-label={external ? `${p.name} — open the live demo` : `${p.name} — read more`}>{cover}</a>
+        : cover)}
       <div className="pname">
         <PixelIcon name="projects" size={20} color="var(--accent)" />
-        {href ? <a className="pname-link" href={href}>{p.name}</a> : p.name}
+        {href
+          ? <a className="pname-link" href={href}
+               target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>{p.name}</a>
+          : p.name}
       </div>
       <div className="pmeta">
         <span>{p.kind}</span>
@@ -170,7 +179,7 @@ function ProjectCard({ p, eager }) {
       <p>{p.desc}</p>
       <div className="links">
         {/* explicit way in, next to the cover and title which also navigate */}
-        {href && <a className="more-link" href={href}>more →</a>}
+        {href && !external && <a className="more-link" href={href}>more →</a>}
         {(p.links || (p.href ? [{ label: p.linkLabel || "readme →", href: p.href }] : [])).map((l) => (
           <a
             key={l.label}

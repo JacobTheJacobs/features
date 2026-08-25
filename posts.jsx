@@ -145,11 +145,7 @@ const DESKTOP_PROJECTS = [
 const THREEJS_PROJECTS = [
   {
     name: "Corporate Brawl",
-    slug: "corporate-brawl",
-    kind: "three.js game",
-    what: "An office brawl, in the browser, in Three.js.",
-    problem: "Games ask for an install, an account and a download before they ask for anything else \u2014 and a browser tab is supposed to be where 3D goes to disappoint.",
-    shots: ["images/shots/brawl-start.webp"],
+    direct: true,
     desc: "A Three.js browser game with chaotic office-brawl gameplay.",
     href: "https://corporate-brawl.web.app/",
     linkLabel: "Live Demo →",
@@ -157,11 +153,7 @@ const THREEJS_PROJECTS = [
   },
   {
     name: "Floor Planner",
-    slug: "floor-planner",
-    kind: "web app · 2D/3D",
-    what: "Draw a floor in 2D, walk it in 3D.",
-    problem: "Floor planning tools want an account, a subscription and your email before they want your walls.",
-    shots: ["images/shots/floorplan-app.webp"],
+    direct: true,
     desc: "A browser-based 2D/3D floor planner — lay out rooms, place items, switch between 2D and 3D views, and save floors locally.",
     href: "https://floorplan-29233.web.app/",
     linkLabel: "Live Demo →",
