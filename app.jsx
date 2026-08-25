@@ -177,6 +177,9 @@ function ProjectCard({ p, eager }) {
             href={l.href}
             target={l.href && l.href !== "#" ? "_blank" : undefined}
             rel="noopener noreferrer"
+            /* several cards share a label ("Marketplace →"); name the project so the
+               links are still told apart out of context */
+            aria-label={`${l.label.replace(/\s*→$/, "")} — ${p.name}`}
           >
             {l.label}
           </a>

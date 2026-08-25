@@ -102,18 +102,6 @@ const PUBLICATION_PROJECTS = [
     linkLabel: "Read \u2192",
     img: "images/fin-node.webp",
   },
-  {
-    name: "AgentNet",
-    slug: "agentnet",
-    kind: "agentic newsroom \u00b7 hebrew AI",
-    what: "An AI news desk in Hebrew, run end to end by agents.",
-    problem: "Israeli readers get AI news late and in translation. AgentNet publishes it in Hebrew the same day \u2014 launches, funding, research \u2014 fully right-to-left, with its own type and generated art per story.",
-    shots: ["images/shots/agentnet-article.webp"],
-    desc: "An agent-run AI news desk in Hebrew for the Israeli tech scene \u2014 model launches, funding and research, with briefs, an archive and an academy section. Fully RTL, self-hosted type, generated art per story.",
-    href: "https://www.agentnet.co.il/ai",
-    linkLabel: "Read \u2192",
-    img: "images/agentnet.webp",
-  },
 ];
 
 const MACOS_PROJECTS = [

@@ -16,8 +16,6 @@ input, textarea, [contenteditable] {
   cursor: url("cursors/text.svg") 8 8, text;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=VT323&family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap");
-
 :root {
   --bg:        #ece2c8;
   --paper:     #f6efd9;
@@ -903,10 +901,10 @@ hr { border: 0; border-top: 1px dashed var(--rule); margin: 24px 0; }
 }
 .foot .badges { display: flex; gap: 8px; flex-wrap: wrap; }
 .feed-list { list-style: none; margin: 0; padding: 0; font-size: 13.5px; line-height: 1.9; }
-.feed-list li { display: flex; align-items: flex-start; gap: 8px; }
+.feed-list li { display: flex; align-items: flex-start; gap: 8px; padding: 2px 0; }
 .feed-list svg { flex-shrink: 0; color: var(--ink-soft); margin-top: 5px; }
 /* long repo slugs (owner/name) must wrap inside the card, not spill past its border */
-.feed-list a { text-decoration: none; min-width: 0; overflow-wrap: break-word; line-height: 1.5; }
+.feed-list a { text-decoration: none; min-width: 0; overflow-wrap: break-word; line-height: 1.5; padding: 3px 0; min-height: 24px; }
 .feed-list a:hover { text-decoration: underline; }
 
 .now-line { display: flex; align-items: center; gap: 8px; padding: 3px 0; font-size: 13px; }

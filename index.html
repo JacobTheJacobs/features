@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="images/datalive-play.webp" fetchpriority="high" />
 
+  <!-- display faces. This used to be an @import sitting after the cursor rules inside
+       styles.css, which is invalid ordering, so the browser dropped it and every heading
+       fell back to plain monospace. As a link it loads, and the preconnects above pay off. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* pixel-art canvas — sits behind everything, scales up with chunky pixels */
