@@ -374,7 +374,7 @@ function Footer() {
       <div>
         <div>
           no analytics · no js trackers ·{" "}
-          <a href="https://github.com/JacobTheJacobs/features" target="_blank" rel="noopener noreferrer">view source</a>
+          <a href="https://github.com/JacobTheJacobs/JacobTheJacobs.github.io" target="_blank" rel="noopener noreferrer">view source</a>
         </div>
         <div style={{ marginTop: 4, opacity: .8 }}>
           © 2017–{year} Jacob · text licensed CC BY-SA · code MIT

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jacobthejacobs.github.io/features/sitemap.xml
+Sitemap: https://jacobthejacobs.github.io/sitemap.xml
