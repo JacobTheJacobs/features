@@ -206,7 +206,7 @@ const EXPERIMENT_PROJECTS = [
     desc: "An Amazon Alexa skill that reports the top trending NFTs by voice. .NET/C# backend, no personal data collected.",
     href: "https://github.com/JacobTheJacobs/AlexaNftTrending",
     linkLabel: "GitHub →",
-    img: "images/alexa-nft.webp",
+    img: "images/alexa-nft.svg",
   },
 ];
 
@@ -226,10 +226,10 @@ const COMPANY_PROJECTS = [
   {
     name: "Jane",
     slug: "jane",
-    kind: "pharmacy network · web",
-    what: "One online system for a pharmacy network.",
-    problem: "A member network is only a network on paper. Every pharmacy runs its own shop, its own stock and its own way of taking an order, so a customer has no single place to start and the network has no shared view of itself.",
-    desc: "A member-pharmacy platform for Jane, an Israeli pharmacy network — connecting partner pharmacies under one online system and serving over 200K monthly users.",
+    kind: "medical cannabis · web",
+    what: "One system across Israel's medical cannabis ecosystem.",
+    problem: "A prescription in Israel's medical cannabis system crosses four kinds of organisation \u2014 the patient, the pharmacy, the producer, the distributor \u2014 and each of them keeps its own stock, its own paperwork and its own phone calls. Nobody in that chain can see the rest of it.",
+    desc: "A platform for Jane, connecting Israel\u2019s medical cannabis ecosystem \u2014 patients, pharmacies, producers and distributors on one system, serving over 200K people a month.",
     href: "http://jane.co.il/",
     linkLabel: "Visit Site →",
     img: "images/jane.svg",
