@@ -115,7 +115,8 @@ function ContributingCard() {
         {items.map((c) => (
           <li key={c.name}>
             <PixelIcon name="gh" size={14} />
-            <a href={c.href} target="_blank" rel="noopener noreferrer">{c.owner}/{c.name}</a>
+            {/* break after the slash rather than mid-word when the slug is too long for the card */}
+            <a href={c.href} target="_blank" rel="noopener noreferrer">{c.owner}/<wbr />{c.name}</a>
           </li>
         ))}
       </ul>
