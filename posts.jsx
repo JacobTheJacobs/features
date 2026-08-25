@@ -104,7 +104,19 @@ const PUBLICATION_PROJECTS = [
   },
 ];
 
-const MACOS_PROJECTS = [
+const DESKTOP_PROJECTS = [
+  {
+    name: "Egret",
+    slug: "egret",
+    kind: "linux \u00b7 network monitor",
+    what: "Little Snitch's question, asked on Linux: who is this process talking to?",
+    problem: "Linux will happily let any binary open a socket and tell you nothing about it. Egret reads every established connection straight from /proc, names the process behind it, checks the executable against the package database and hashes it \u2014 so an unpackaged binary reaching the network is visible as one \u2014 and matches it against ordered allow/deny rules. Enforcement is observe-only for now: verdicts are decided and previewed, but nothing is dropped yet.",
+    desc: "An outbound network monitor and policy engine for Linux \u2014 attributes every socket to its process, checks the binary's provenance, and matches ordered rules over process, domain, address, port and zone. FastAPI backend with a React web UI and a C++/Qt6 tray client.",
+    links: [],
+    img: "images/egret.webp",
+    shots: ["images/shots/egret-rules.webp", "images/shots/egret-enforcement.webp"],
+    underConstruction: true,
+  },
   {
     name: "Llama Menu",
     slug: "llama-menu",
@@ -234,7 +246,7 @@ const COMPANY_PROJECTS = [
 
 window.AI_PROJECTS = AI_PROJECTS;
 window.PUBLICATION_PROJECTS = PUBLICATION_PROJECTS;
-window.MACOS_PROJECTS = MACOS_PROJECTS;
+window.DESKTOP_PROJECTS = DESKTOP_PROJECTS;
 window.THREEJS_PROJECTS = THREEJS_PROJECTS;
 window.EXPERIMENT_PROJECTS = EXPERIMENT_PROJECTS;
 window.COMPANY_PROJECTS = COMPANY_PROJECTS;
@@ -255,7 +267,7 @@ const CONTRIBUTIONS = [
 ];
 
 window.ALL_PROJECTS = [].concat(
-  COMPANY_PROJECTS, AI_PROJECTS, PUBLICATION_PROJECTS, MACOS_PROJECTS, THREEJS_PROJECTS, EXPERIMENT_PROJECTS
+  COMPANY_PROJECTS, AI_PROJECTS, PUBLICATION_PROJECTS, DESKTOP_PROJECTS, THREEJS_PROJECTS, EXPERIMENT_PROJECTS
 );
 
 window.CONTRIBUTIONS = CONTRIBUTIONS;

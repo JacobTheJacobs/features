@@ -209,7 +209,7 @@ function ProjectsPage() {
       <ProjectSection title="Corporate projects" items={window.COMPANY_PROJECTS} top />
       <ProjectSection title="AI" items={window.AI_PROJECTS} />
       <ProjectSection title="Publications" items={window.PUBLICATION_PROJECTS} />
-      <ProjectSection title="macOS tools" items={window.MACOS_PROJECTS} />
+      <ProjectSection title="Desktop tools" items={window.DESKTOP_PROJECTS} />
       <ProjectSection title="Three.js" items={window.THREEJS_PROJECTS} />
       <ProjectSection title="Experiments" items={window.EXPERIMENT_PROJECTS} />
     </>
