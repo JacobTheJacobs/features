@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240" role="img" aria-label="TradingAgents Control Room">
+  <rect width="600" height="240" fill="#10241c"/>
+  <rect x="10" y="10" width="580" height="220" rx="10" fill="none" stroke="#4fbf87" stroke-width="2"/>
+  <text x="44" y="158" font-size="92">📈</text>
+  <text x="180" y="106" font-family="'Courier New', monospace" font-size="31" font-weight="700" fill="#f2e8d5">TradingAgents</text>
+  <text x="180" y="142" font-family="'Courier New', monospace" font-size="31" font-weight="700" fill="#f2e8d5">Control Room</text>
+  <text x="182" y="174" font-family="'Courier New', monospace" font-size="18" fill="#4fbf87">multi-agent trading floor</text>
+  <text x="182" y="200" font-family="'Courier New', monospace" font-size="14" fill="#8ba79a">analysts · debate · trader · risk</text>
+</svg>

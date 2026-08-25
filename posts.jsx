@@ -4,6 +4,14 @@
 
 const AI_PROJECTS = [
   {
+    name: "Antigravity CLI Copilot",
+    kind: "vs code extension",
+    desc: "Google's Antigravity CLI inside VS Code \u2014 streaming replies, live tool rows, generated images rendered inline, and follow-ups queued instead of cancelling the turn.",
+    href: "https://marketplace.visualstudio.com/items?itemName=jacobthejacobs.antigravity-chat",
+    linkLabel: "Marketplace \u2192",
+    img: "images/antigravity-copilot.svg",
+  },
+  {
     name: "Claw Mate",
     kind: "desktop AI pet",
     desc: "A desktop AI pet that connects with Claude Code, Codex, and OpenClaw to understand what your agents are doing and surface approvals when needed.",
@@ -22,6 +30,14 @@ const AI_PROJECTS = [
     img: "images/grok-cli-copilot.webp",
   },
   {
+    name: "TradingAgents Control Room",
+    kind: "multi-agent \u00b7 react + phaser",
+    desc: "A multi-agent trading floor you can watch \u2014 AI analysts debate a stock live in pixel art, running analysts \u2192 bull/bear debate \u2192 trader \u2192 risk \u2192 decision. React + Phaser front end, FastAPI back end, market data from the Fin-Node CDN.",
+    href: "https://github.com/JacobTheJacobs/TradingAgents-Control-Room",
+    linkLabel: "GitHub \u2192",
+    img: "images/tradingagents-control-room.svg",
+  },
+  {
     name: "PhantomPilot",
     kind: "android · ai agent",
     desc: "An autonomous AI agent that operates your Android phone for you — it reads the screen, plans the steps, and ghost-taps through real apps to complete tasks hands-free.",
@@ -38,6 +54,25 @@ const AI_PROJECTS = [
     linkLabel: "GitHub →",
     img: "images/browser-sdk.svg",
     underConstruction: true,
+  },
+];
+
+const MACOS_PROJECTS = [
+  {
+    name: "Llama Menu",
+    kind: "macOS menu bar \u00b7 llama.cpp",
+    desc: "A macOS menu bar control for local llama.cpp \u2014 runs GGUF models at the largest context your Mac can actually hold, sized from real GGUF metadata rather than guesswork.",
+    href: "https://github.com/JacobTheJacobs/llamacpp-menubar",
+    linkLabel: "GitHub \u2192",
+    img: "images/llama-menu.svg",
+  },
+  {
+    name: "Hermes Menu",
+    kind: "macOS menu bar \u00b7 gateway",
+    desc: "A macOS menu bar control for the Hermes gateway \u2014 start it, stop it, and watch it, with status read straight from launchd instead of scraped from CLI output.",
+    href: "https://github.com/JacobTheJacobs/hermes-menubar",
+    linkLabel: "GitHub \u2192",
+    img: "images/hermes-menu.svg",
   },
 ];
 
@@ -107,6 +142,24 @@ const COMPANY_PROJECTS = [
 ];
 
 window.AI_PROJECTS = AI_PROJECTS;
+window.MACOS_PROJECTS = MACOS_PROJECTS;
 window.THREEJS_PROJECTS = THREEJS_PROJECTS;
 window.EXPERIMENT_PROJECTS = EXPERIMENT_PROJECTS;
 window.COMPANY_PROJECTS = COMPANY_PROJECTS;
+
+const CONTRIBUTIONS = [
+  {
+    name: "RAG_Techniques",
+    owner: "NirDiamant",
+    href: "https://github.com/NirDiamant/RAG_Techniques",
+    desc: "advanced retrieval-augmented generation, one runnable notebook per method",
+  },
+  {
+    name: "Agent_Memory_Techniques",
+    owner: "NirDiamant",
+    href: "https://github.com/NirDiamant/Agent_Memory_Techniques",
+    desc: "30 notebooks covering the memory patterns agents actually need",
+  },
+];
+
+window.CONTRIBUTIONS = CONTRIBUTIONS;

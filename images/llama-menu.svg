@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240" role="img" aria-label="Llama Menu">
+  <rect width="600" height="240" fill="#2a1d24"/>
+  <rect x="10" y="10" width="580" height="220" rx="10" fill="none" stroke="#e0855f" stroke-width="2"/>
+  <text x="44" y="158" font-size="96">🦙</text>
+  <text x="196" y="118" font-family="'Courier New', monospace" font-size="38" font-weight="700" fill="#f2e8d5">Llama Menu</text>
+  <text x="198" y="156" font-family="'Courier New', monospace" font-size="20" fill="#e0855f">menu bar · llama.cpp</text>
+  <text x="198" y="186" font-family="'Courier New', monospace" font-size="15" fill="#a89184">runs GGUF at max real context</text>
+</svg>

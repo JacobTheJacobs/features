@@ -26,7 +26,7 @@ const DISPLAY_FONTS = [
   { value: "JetBrains Mono",              label: "jetbrains"  },
 ];
 
-const SITE_LAST_UPDATED = "2026-06-29";
+const SITE_LAST_UPDATED = "2026-08-25";
 
 // ── small helpers ─────────────────────────────────────────────────────────
 function fmtDate(iso) {
@@ -104,10 +104,29 @@ function FeedsCard() {
   );
 }
 
+function ContributingCard() {
+  const items = window.CONTRIBUTIONS || [];
+  if (!items.length) return null;
+  return (
+    <div className="card">
+      <div className="lbl"><PixelIcon name="projects" size={12} color="var(--accent)" /> contributing to</div>
+      <ul className="feed-list">
+        {items.map((c) => (
+          <li key={c.name}>
+            <PixelIcon name="gh" size={14} />
+            <a href={c.href} target="_blank" rel="noopener noreferrer">{c.owner}/{c.name}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function Sidebar() {
   return (
     <aside className="side">
       <NowWidget />
+      <ContributingCard />
       <FeedsCard />
     </aside>
   );
@@ -163,6 +182,7 @@ function ProjectsPage() {
     <>
       <ProjectSection title="Corporate projects" items={window.COMPANY_PROJECTS} top />
       <ProjectSection title="AI" items={window.AI_PROJECTS} />
+      <ProjectSection title="macOS tools" items={window.MACOS_PROJECTS} />
       <ProjectSection title="Three.js" items={window.THREEJS_PROJECTS} />
       <ProjectSection title="Experiments" items={window.EXPERIMENT_PROJECTS} />
     </>

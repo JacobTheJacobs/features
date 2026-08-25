@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240" role="img" aria-label="Antigravity CLI Copilot">
+  <rect width="600" height="240" fill="#191b2e"/>
+  <rect x="10" y="10" width="580" height="220" rx="10" fill="none" stroke="#8d7bf0" stroke-width="2"/>
+  <text x="44" y="158" font-size="92">🛰️</text>
+  <text x="182" y="106" font-family="'Courier New', monospace" font-size="31" font-weight="700" fill="#f2e8d5">Antigravity CLI</text>
+  <text x="182" y="142" font-family="'Courier New', monospace" font-size="31" font-weight="700" fill="#f2e8d5">Copilot</text>
+  <text x="184" y="174" font-family="'Courier New', monospace" font-size="18" fill="#8d7bf0">vs code extension</text>
+  <text x="184" y="200" font-family="'Courier New', monospace" font-size="14" fill="#9a97b8">streaming replies · live tool rows</text>
+</svg>
